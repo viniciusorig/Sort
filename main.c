@@ -1,24 +1,28 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "sort.h"
 #include "intVector.h"
 
 int main(int argc, char *argv[])
 {
-    if(argc != 2)
+    if (argc < 2)
     {
         fprintf(stderr, "Voce precisa passar apenas 2 argumentos");
         exit(EXIT_FAILURE);
     }
     int tam = atoi(argv[1]);
-    struct intVector *intVector = create(tam);
+    struct Vetor *vetor = create(tam);
 
-    append(intVector, tam);
+    for (int i = 0; i < tam; i++)
+        vetor->data[i] = rand() % tam;
 
-    mergesort(intVector, 0, tam);
+   /*  printf("Vetor Original :: ");
+    for (int i = 0; i < tam; i++)
+        printf("%d ", vetor->data[i]); */
+    merge(vetor, 0, tam - 1);   
 
-    print(intVector);
-
-    destroy(intVector);
+    printf("\n\n\nVetor Ordenado :: ");
+    /* for (int i = 0; i < tam; i++)
+        printf("%d ", vetor->data[i]); */
+    destroy(vetor);
     return 0;
 }

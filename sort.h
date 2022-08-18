@@ -1,3 +1,4 @@
+#include "intVector.h"
 
-void mergesort(struct intVetor *vetor, int inicio, int fim);
-void merge(struct intVector *vetor, int l, int m, int r);
+void merge(struct Vetor *vetor, int l, int m, int r);
+void mergeSort(struct Vetor *vetor, int l, int r);

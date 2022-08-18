@@ -1,21 +1,24 @@
 // ARQUIVO DE ESPECIFICAÇÕES
 #include <stdbool.h>
-struct intVector
+struct Vetor
 {
     int capacity; // numero maximo de elementos
     int size;     // qtd de elementos atuais
-    int *data;    // vetor de floats
+    int *data;    // vetor de int
 };
 
-struct intVector *create(int tam);
-void destroy(struct intVector **ref_vector);
-int size(struct intVector *vector);
-int capacity(struct intVector *vector);
-int at(struct intVector *vector, int pos);
-int get(struct intVector *vector);
-void append(struct intVector *vector, int tam);
-void print(struct intVector *vector);
-bool isFull(struct intVector *vector);
+struct Vetor *create(int tam);
+void destroy(struct Vetor *ref_vector);
+int size(struct Vetor *vector);
+int capacity(struct Vetor *vector);
+int at(struct Vetor *vector, int pos);
+int get(struct Vetor *vector);
+void append(struct Vetor *vector, int tam);
+void print(struct Vetor *vector);
+bool isFull(struct Vetor *vector);
+void ordena(struct Vetor *vetor, int inicio, int meio, int fim);
+void merge(struct Vetor *vetor, int inicio, int fim);
+
 
 /*--------------PODERIA EXISTIR-------------*/
 // bool compare(floatVector*, floatVector*);
