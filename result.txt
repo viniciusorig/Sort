@@ -1,0 +1,38 @@
+Aluno :: Vinicius Barbosa Ribeiro PC:: intel i5 8º geração clock 1.60GHz 12gb de ram ssd de 256gb/hdd de 1tb, sem placa de video
+SO :: Linux Mint XFCE
+resultados dos testes sendo a ordem e como foi feito::
+void (*funcs[])(int *, int, int) =
+    {
+        mergeSort,
+        quicksort,
+        bubble,
+        selection
+    };
+
+Quantidades de dados :: 100
+
+função[0] pronta em 0.000029s
+função[1] pronta em 0.000015s
+função[2] pronta em 0.000102s
+função[3] pronta em 0.000062s
+
+Quantidades de dados :: 1000
+
+função[0] pronta em 0.000226s
+função[1] pronta em 0.000116s
+função[2] pronta em 0.009070s
+função[3] pronta em 0.003172s
+
+Quantidades de dados :: 10000
+
+função[0] pronta em 0.001536s
+função[1] pronta em 0.000776s
+função[2] pronta em 0.229267s
+função[3] pronta em 0.116392s
+
+Quantidades de dados :: 100000
+
+função[0] pronta em 0.006948s
+função[1] pronta em 0.004718s
+função[2] pronta em 22.406038s
+função[3] pronta em 11.655088s

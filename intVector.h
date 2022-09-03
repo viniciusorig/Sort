@@ -1,26 +1,9 @@
 // ARQUIVO DE ESPECIFICAÇÕES
 #include <stdbool.h>
-struct Vetor
-{
-    int capacity; // numero maximo de elementos
-    int size;     // qtd de elementos atuais
-    int *data;    // vetor de int
-};
+#include <time.h>
 
-struct Vetor *create(int tam);
-void destroy(struct Vetor *ref_vector);
-int size(struct Vetor *vector);
-int capacity(struct Vetor *vector);
-int at(struct Vetor *vector, int pos);
-int get(struct Vetor *vector);
-void append(struct Vetor *vector, int tam);
-void print(struct Vetor *vector);
-bool isFull(struct Vetor *vector);
-void ordena(struct Vetor *vetor, int inicio, int meio, int fim);
-void merge(struct Vetor *vetor, int inicio, int fim);
-
-
-/*--------------PODERIA EXISTIR-------------*/
-// bool compare(floatVector*, floatVector*);
-// void split(floatVector*, floatVector*);
-// void join(floatVector*, floatVector*);
+int *create(size_t tam);
+void destroy(int *vet_ref);
+void print(int *vector, size_t tam);
+void append(int *vector, int tam);
+double getTime(clock_t start_t, clock_t end_t);

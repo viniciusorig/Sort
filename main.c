@@ -1,28 +1,57 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
+
 #include "intVector.h"
+#include "sort.h"
+
+typedef struct
+{
+    clock_t start_t;
+    clock_t end_t;
+} Time;
+
+FILE *file;
 
 int main(int argc, char *argv[])
 {
-    if (argc < 2)
+    Time time;
+    if (argc < 3)
     {
-        fprintf(stderr, "Voce precisa passar apenas 2 argumentos");
+        printf("Digite todos os parametros <tam1> <tam2> <tam3> <tam4>");
         exit(EXIT_FAILURE);
     }
-    int tam = atoi(argv[1]);
-    struct Vetor *vetor = create(tam);
 
-    for (int i = 0; i < tam; i++)
-        vetor->data[i] = rand() % tam;
+    if((file = fopen("result.txt", "a")) == NULL)
+    {
+        fprintf(stderr,"erro na abertura de arquivo");
+        exit(EXIT_FAILURE);
+    }
 
-   /*  printf("Vetor Original :: ");
-    for (int i = 0; i < tam; i++)
-        printf("%d ", vetor->data[i]); */
-    merge(vetor, 0, tam - 1);   
+    int tamanhos[] = {atoi(argv[1]), atoi(argv[2]), atoi(argv[3]), atoi(argv[4])};
 
-    printf("\n\n\nVetor Ordenado :: ");
-    /* for (int i = 0; i < tam; i++)
-        printf("%d ", vetor->data[i]); */
-    destroy(vetor);
+    void (*funcs[])(int *, int, int) =
+        {
+            mergeSort,
+            quicksort,
+            bubble,
+            selection
+        };
+
+    for (int i = 0; i < 4; i++)
+    {
+        fprintf(file, "\nQuantidades de dados :: %d\n\n", tamanhos[i]);
+        for (int j = 0; j < 4; j++)
+        {
+            int *vetor = (int *)malloc(tamanhos[i] * sizeof(int));
+            time.start_t = clock();
+            (funcs[j])(vetor, 0, tamanhos[i]);
+            time.end_t = clock();
+            fprintf(file, "função[%d] pronta em %lfs\n", j, getTime(time.start_t, time.end_t));
+            destroy(vetor);
+            time.start_t = 0, time.end_t = 0;
+        }
+    }
+
     return 0;
 }

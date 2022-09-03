@@ -1,4 +1,8 @@
 #include "intVector.h"
 
-void merge(struct Vetor *vetor, int l, int m, int r);
-void mergeSort(struct Vetor *vetor, int l, int r);
+void merge(int *vetor, int began, int mid, int end);
+void mergeSort(int *vetor, int began, int end);
+void quicksort(int *vetor, int began, int end);
+void swap(int *a, int *b);
+void bubble(int *vetor, int began, int end);
+void selection(int *vetor, int began, int end);
