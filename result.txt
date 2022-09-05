@@ -36,3 +36,8 @@ função[0] pronta em 0.006948s
 função[1] pronta em 0.004718s
 função[2] pronta em 22.406038s
 função[3] pronta em 11.655088s
+
+como podemos observar que o quickSort acabe se sobresaindo em todos os testes onde o mergesort se assemelha muito.
+podemos observaer que o bublble e o selection são estruturas paracedidos onde temos a maior diferença que o selecton
+percorre uma quantidade menor do vetor e vai armazenado o indice de menor valor.
+
